@@ -103,7 +103,7 @@
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
-			android:text="@string/fragment_login_terms_and_cond"
+			android:text="@string/agree_terms_and_cond"
 			android:layout_marginBottom="@dimen/spacing_large"/>
 	</androidx.constraintlayout.widget.ConstraintLayout>
 

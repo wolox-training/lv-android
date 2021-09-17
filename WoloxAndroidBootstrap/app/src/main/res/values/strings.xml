@@ -21,10 +21,9 @@
     <string name="fragment_login_email">Email</string>
     <string name="fragment_login_password">Password</string>
     <string name="fragment_login_sign_up">Sign up</string>
-    <string name="fragment_login_terms_and_cond">By joining you agree to our Terms &amp; conditions</string>
     <string name="fragment_login_error_all_fields_required">All fields are required</string>
     <string name="fragment_login_error_invalid_email">Invalid email format</string>
     <string name="fragment_signup_join">Join</string>
-    <string name="fragment_signup_terms_and_cond">By joining you agree to our <u>Terms &amp; conditions</u></string>
+    <string name="agree_terms_and_cond">By joining you agree to our <u>Terms &amp; conditions</u></string>
 
 </resources>

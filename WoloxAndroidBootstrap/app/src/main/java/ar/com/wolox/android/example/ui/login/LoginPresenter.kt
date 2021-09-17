@@ -15,8 +15,10 @@ class LoginPresenter @Inject constructor(private val userSession: UserSession) :
 
     fun onLoginButtonClicked(user: String, password: String) {
         if (user.isEmpty() && password.isEmpty()) {
-            view?.dismissKeyboard()
-            view?.showErrorAllRequired()
+            view?.apply {
+                dismissKeyboard()
+                showErrorAllRequired()
+            }
             return
         }
         if (!user.isEmailValid()) {

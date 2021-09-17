@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/confirmPasswordInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/fragment_signup_terms_and_cond"
+        android:text="@string/agree_terms_and_cond"
         android:layout_marginTop="@dimen/spacing_large"
         android:layout_marginBottom="@dimen/spacing_large"/>
 
