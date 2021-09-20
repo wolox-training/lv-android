@@ -20,9 +20,7 @@ interface LoginView {
 
     fun showLoading()
 
-    fun disableLoginButton()
-
-    fun enableLoginButton()
+    fun toggleLoginButton(enabled: Boolean)
 
     fun dismissLoading()
 

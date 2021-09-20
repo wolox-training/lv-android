@@ -31,31 +31,23 @@ class LoginPresenter @Inject constructor(private val userSession: UserSession, p
             view?.apply {
                 dismissKeyboard()
                 showLoading()
-                disableLoginButton()
+                toggleLoginButton(false)
             }
             networkRequest(authRepository.getLogin(LoginRequest(user, password))) {
                 onResponseSuccessful {
                     userSession.username = user
-                    view?.apply {
-                        dismissLoading()
-                        enableLoginButton()
-                        goToHome()
-                    }
+                    view?.goToHome()
                 }
-                onResponseFailed { responseBody, i ->
-                    view?.apply {
-                        dismissLoading()
-                        enableLoginButton()
-                        showErrorInvalidUser()
-                    }
+                onResponseFailed { _, _ ->
+                    view?.showErrorInvalidUser()
                 }
                 onCallFailure {
-                    view?.apply {
-                        dismissLoading()
-                        enableLoginButton()
-                        showErrorNetwork()
-                    }
+                    view?.showErrorNetwork()
                 }
+            }
+            view?.apply {
+                dismissLoading()
+                toggleLoginButton(true)
             }
         }
     }

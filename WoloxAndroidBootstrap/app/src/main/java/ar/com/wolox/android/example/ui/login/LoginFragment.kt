@@ -71,12 +71,8 @@ class LoginFragment private constructor() : WolmoFragment<FragmentLoginBinding, 
         binding.loadingBar.visibility = View.GONE
     }
 
-    override fun disableLoginButton() {
-        binding.loginButton.isEnabled = false
-    }
-
-    override fun enableLoginButton() {
-        binding.loginButton.isEnabled = true
+    override fun toggleLoginButton(enabled: Boolean) {
+        binding.loginButton.isEnabled = enabled
     }
 
     override fun showErrorInvalidUser() {
