@@ -1,5 +1,8 @@
 package ar.com.wolox.android.example.ui.login
 
+import android.view.View
+import android.widget.Toast
+import androidx.core.widget.doAfterTextChanged
 import ar.com.wolox.android.R
 import ar.com.wolox.android.databinding.FragmentLoginBinding
 import ar.com.wolox.android.example.ui.home.HomeActivity
@@ -8,6 +11,7 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import ar.com.wolox.wolmo.core.util.openBrowser
 import ar.com.wolox.wolmo.core.util.jumpTo
 import ar.com.wolox.android.example.utils.hideKeyboard
+import ar.com.wolox.android.example.utils.showToast
 
 class LoginFragment private constructor() : WolmoFragment<FragmentLoginBinding, LoginPresenter>(), LoginView {
 
@@ -24,6 +28,9 @@ class LoginFragment private constructor() : WolmoFragment<FragmentLoginBinding, 
                 presenter.onLoginButtonClicked(usernameInput.text.toString(), passwordInput.text.toString())
             }
             signupButton.setOnClickListener { presenter.onSignupButtonClicked() }
+            usernameInput.doAfterTextChanged {
+                presenter.onUsernameChanged(it.toString())
+            }
         }
     }
 
@@ -50,6 +57,34 @@ class LoginFragment private constructor() : WolmoFragment<FragmentLoginBinding, 
 
     override fun goToSignup() {
         requireContext().jumpTo(SignupActivity::class.java)
+    }
+
+    override fun setPartialUsername(username: String) {
+        binding.usernameInput.setText(username)
+    }
+
+    override fun showLoading() {
+        binding.loadingBar.visibility = View.VISIBLE
+    }
+
+    override fun dismissLoading() {
+        binding.loadingBar.visibility = View.GONE
+    }
+
+    override fun disableLoginButton() {
+        binding.loginButton.isEnabled = false
+    }
+
+    override fun enableLoginButton() {
+        binding.loginButton.isEnabled = true
+    }
+
+    override fun showErrorInvalidUser() {
+        showToast(getString(R.string.fragment_login_error_login_credentials), Toast.LENGTH_LONG)
+    }
+
+    override fun showErrorNetwork() {
+        showToast(getString(R.string.fragment_login_error_network), Toast.LENGTH_LONG)
     }
 
     companion object {
