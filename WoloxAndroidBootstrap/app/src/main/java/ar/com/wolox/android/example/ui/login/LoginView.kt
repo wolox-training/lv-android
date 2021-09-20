@@ -15,4 +15,16 @@ interface LoginView {
     fun goToHome()
 
     fun goToSignup()
+
+    fun setPartialUsername(username: String)
+
+    fun showLoading()
+
+    fun toggleLoginButton(enabled: Boolean)
+
+    fun dismissLoading()
+
+    fun showErrorInvalidUser()
+
+    fun showErrorNetwork()
 }

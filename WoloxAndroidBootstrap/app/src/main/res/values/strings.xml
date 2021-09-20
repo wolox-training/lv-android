@@ -26,4 +26,7 @@
     <string name="fragment_signup_join">Join</string>
     <string name="agree_terms_and_cond">By joining you agree to our <u>Terms &amp; conditions</u></string>
 
+    <string name="fragment_login_error_login_credentials">Invalid username and password combination</string>
+    <string name="fragment_login_error_network">Error: Could not reach server</string>
+
 </resources>
