@@ -12,6 +12,7 @@
     <dimen name="static_spacing_huge">48dp</dimen>
     <dimen name="static_spacing_huge_extra">60dp</dimen>
     <dimen name="static_spacing_largest">72dp</dimen>
+    <dimen name="static_spacing_largest_extra">94dp</dimen>
 
     <!-- Spacing -->
     <dimen name="spacing_none">0dp</dimen>
@@ -46,4 +47,7 @@
     <dimen name="font_huge">24sp</dimen>
 
     <!-- Add your custom dimens here -->
+
+    <dimen name="row_height">88dp</dimen>
+
 </resources>

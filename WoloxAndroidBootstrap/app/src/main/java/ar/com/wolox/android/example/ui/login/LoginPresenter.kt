@@ -1,7 +1,5 @@
 package ar.com.wolox.android.example.ui.login
 
-import ar.com.wolox.android.example.model.dtos.LoginRequest
-import ar.com.wolox.android.example.network.builder.networkRequest
 import ar.com.wolox.android.example.network.repository.AuthRepository
 import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.android.example.utils.isEmailValid
@@ -15,8 +13,11 @@ class LoginPresenter @Inject constructor(private val userSession: UserSession, p
         if (userSession.username != null) {
             view?.goToHome()
         } else {
+
             userSession.partialUsername?.let { view?.setPartialUsername(it) }
         }
+        // TODO REMOVE
+        view?.goToHome()
     }
 
     fun onLoginButtonClicked(user: String, password: String) = launch {
@@ -33,6 +34,7 @@ class LoginPresenter @Inject constructor(private val userSession: UserSession, p
                 showLoading()
                 toggleLoginButton(false)
             }
+            /*gotta save that heroku
             networkRequest(authRepository.getLogin(LoginRequest(user, password))) {
                 onResponseSuccessful {
                     userSession.username = user
@@ -48,7 +50,8 @@ class LoginPresenter @Inject constructor(private val userSession: UserSession, p
             view?.apply {
                 dismissLoading()
                 toggleLoginButton(true)
-            }
+            }*/
+            view?.goToHome()
         }
     }
 
