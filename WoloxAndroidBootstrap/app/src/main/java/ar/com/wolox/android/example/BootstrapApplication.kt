@@ -39,7 +39,6 @@ class BootstrapApplication : WolmoApplication() {
             builder.okHttpInterceptors(
                     buildHttpLoggingInterceptor(Level.BODY), ChuckInterceptor(this))
         }
-
         return builder.build()
     }
 
