@@ -33,5 +33,6 @@
     <string name="fragment_news_add_new">add_new</string>
     <string name="fragment_add_new_title">Title</string>
     <string name="fragment_add_new_description">Add a description</string>
+    <string name="fragment_home_toolbar_title">Wolox</string>
 
 </resources>

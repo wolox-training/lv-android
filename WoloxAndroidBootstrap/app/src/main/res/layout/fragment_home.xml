@@ -15,7 +15,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:title="Wolox"
+            app:title="@string/fragment_home_toolbar_title"
             app:navigationIcon="@drawable/wolox_logo"
             android:paddingLeft="@dimen/spacing_large"
             android:paddingRight="@dimen/spacing_large"/>
@@ -23,7 +23,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/tab_view_height_medium"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

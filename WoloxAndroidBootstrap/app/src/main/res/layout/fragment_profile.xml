@@ -28,8 +28,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="@dimen/image_square_medium"
+            android:layout_height="@dimen/image_square_medium"
             app:srcCompat="@drawable/mock_avatar"
             app:layout_constraintStart_toStartOf="@id/coverImage"
             app:layout_constraintTop_toBottomOf="@id/coverImage"
@@ -39,7 +39,7 @@
         <Space
             android:id="@+id/space"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/static_spacing_huge"
             app:layout_constraintTop_toBottomOf="@id/coverImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="@dimen/static_spacing_largest_extra"
             android:text="Mario Trusso"
-            android:textSize="18sp"/>
+            android:textSize="@dimen/font_large"/>
 
         <ImageView
             android:id="@+id/locationImage"
@@ -73,7 +73,7 @@
             app:layout_constraintStart_toEndOf="@id/locationImage"
             android:layout_marginLeft="@dimen/spacing_medium"
             android:text="Milano, Italy"
-            android:textSize="11sp"/>
+            android:textSize="@dimen/font_medium"/>
 
         <TextView
             android:id="@+id/profileText"

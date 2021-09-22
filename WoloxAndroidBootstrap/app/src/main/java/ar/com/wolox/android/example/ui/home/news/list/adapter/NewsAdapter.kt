@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.New
@@ -26,12 +25,7 @@ class NewsAdapter(val news: List<New>) : RecyclerView.Adapter<NewsAdapter.ViewHo
             news[position].createdAt.toPrettyDate()?.let {
                 time.text = it
             }
-            liked.apply {
-                if (news[position].likes.isEmpty())
-                    setImageDrawable(ContextCompat.getDrawable(liked.context, R.drawable.ic_like_off))
-                else
-                    setImageDrawable(ContextCompat.getDrawable(liked.context, R.drawable.ic_like_on))
-            }
+            liked.isEnabled = news[position].likes.isNotEmpty()
         }
     }
 
