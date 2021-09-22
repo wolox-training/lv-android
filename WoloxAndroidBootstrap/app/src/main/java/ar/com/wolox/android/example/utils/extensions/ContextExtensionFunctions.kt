@@ -1,4 +1,4 @@
-package ar.com.wolox.android.example.utils
+package ar.com.wolox.android.example.utils.extensions
 
 import android.app.Activity
 import android.content.Context

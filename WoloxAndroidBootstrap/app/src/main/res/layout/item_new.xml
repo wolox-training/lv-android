@@ -8,7 +8,7 @@
         android:layout_height="@dimen/row_height">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/newImage"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginLeft="@dimen/spacing_large"
@@ -19,7 +19,7 @@
 
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/timeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/spacing_large"
@@ -28,6 +28,8 @@
             app:layout_constraintStart_toStartOf="@+id/likedImage"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread"
+            android:maxLength="5"
+            android:ellipsize="end"
             tools:text="15m" />
 
 
@@ -40,10 +42,11 @@
             android:textColor="@android:color/black"
             app:layout_constraintBottom_toTopOf="@+id/descriptionText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Ali Connor" />
+            android:textSize="18sp"
+            tools:text="Ali Connor"
+            app:layout_constraintVertical_chainStyle="packed"/>
 
         <TextView
             android:id="@+id/descriptionText"
@@ -55,17 +58,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleText"
-            tools:text="I'll be in your neighbordhood doing errands asd asd" />
+            tools:text="I'll be in your neighbordhood doing errands asd asd"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintVertical_chainStyle="packed"/>
 
         <ImageView
             android:id="@+id/likedImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/spacing_large"
-            android:src="@drawable/ic_like_off"
+            tools:src="@drawable/ic_like_off"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/time"
+            app:layout_constraintTop_toBottomOf="@id/timeText"
             app:layout_constraintVertical_chainStyle="spread" />
 
 

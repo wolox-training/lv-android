@@ -1,6 +1,6 @@
 package ar.com.wolox.android.example.ui.home
 
-import ar.com.wolox.android.example.ui.home.news.NewsFragment
+import ar.com.wolox.android.example.ui.home.news.list.NewsFragment
 import ar.com.wolox.android.example.ui.home.profile.ProfileFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

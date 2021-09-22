@@ -31,5 +31,7 @@
     <string name="profile_toolbar_title">Profile</string>
     <string name="news_toolbar_title">News</string>
     <string name="fragment_news_add_new">add_new</string>
+    <string name="fragment_add_new_title">Title</string>
+    <string name="fragment_add_new_description">Add a description</string>
 
 </resources>

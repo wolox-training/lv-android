@@ -1,10 +1,10 @@
 package ar.com.wolox.android.example.ui.home
 
-import android.widget.LinearLayout
 import ar.com.wolox.android.R
 import ar.com.wolox.android.databinding.FragmentHomeBinding
-import ar.com.wolox.android.example.ui.home.news.NewsFragment
+import ar.com.wolox.android.example.ui.home.news.list.NewsFragment
 import ar.com.wolox.android.example.ui.home.profile.ProfileFragment
+import ar.com.wolox.android.example.utils.extensions.removeSpace
 import ar.com.wolox.wolmo.core.adapter.viewpager.SimpleFragmentPagerAdapter
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import javax.inject.Inject
@@ -35,13 +35,7 @@ class HomeFragment private constructor() : WolmoFragment<FragmentHomeBinding, Ho
             binding.tabLayout.setupWithViewPager(binding.viewPager)
             getTabAt(0)?.setIcon(R.drawable.selector_tab_news)
             getTabAt(1)?.setIcon(R.drawable.selector_tab_profile)
-
-            // Remove space between icon and text... Yeah, I don't like it either.
-            for (indexTab in 0..this.tabCount) {
-                val params = this.getTabAt(indexTab)?.view?.getChildAt(0)?.layoutParams as LinearLayout.LayoutParams?
-                params?.bottomMargin = 0
-                this.getTabAt(indexTab)?.view?.getChildAt(0)?.layoutParams = params
-            }
+            removeSpace()
         }
     }
 
