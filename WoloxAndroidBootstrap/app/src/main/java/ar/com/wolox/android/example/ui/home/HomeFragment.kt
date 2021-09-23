@@ -32,7 +32,7 @@ class HomeFragment private constructor() : WolmoFragment<FragmentHomeBinding, Ho
             )
         }
         binding.tabLayout.apply {
-            binding.tabLayout.setupWithViewPager(binding.viewPager)
+            setupWithViewPager(binding.viewPager)
             getTabAt(0)?.setIcon(R.drawable.selector_tab_news)
             getTabAt(1)?.setIcon(R.drawable.selector_tab_profile)
             removeSpace()
