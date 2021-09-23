@@ -4,7 +4,7 @@ import ar.com.wolox.android.example.model.dtos.LoginRequest
 import ar.com.wolox.android.example.network.builder.networkRequest
 import ar.com.wolox.android.example.network.repository.AuthRepository
 import ar.com.wolox.android.example.utils.UserSession
-import ar.com.wolox.android.example.utils.isEmailValid
+import ar.com.wolox.android.example.utils.extensions.isEmailValid
 import ar.com.wolox.wolmo.core.presenter.CoroutineBasePresenter
 import javax.inject.Inject
 import kotlinx.coroutines.launch

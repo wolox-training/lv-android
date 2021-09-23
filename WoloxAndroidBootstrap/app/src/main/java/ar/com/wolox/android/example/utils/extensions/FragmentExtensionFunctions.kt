@@ -1,4 +1,4 @@
-package ar.com.wolox.android.example.utils
+package ar.com.wolox.android.example.utils.extensions
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment

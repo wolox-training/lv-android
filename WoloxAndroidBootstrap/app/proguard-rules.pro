@@ -25,3 +25,6 @@
 
 # Application classes that will be serialized/deserialized over Gson
 -keep class ar.com.wolox.android.example.model.** { *; }
+
+# PrettyTime
+-keep class org.ocpsoft.prettytime.i18n.**

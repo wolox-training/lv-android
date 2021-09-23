@@ -7,11 +7,11 @@ import ar.com.wolox.android.R
 import ar.com.wolox.android.databinding.FragmentLoginBinding
 import ar.com.wolox.android.example.ui.home.HomeActivity
 import ar.com.wolox.android.example.ui.signup.SignupActivity
+import ar.com.wolox.android.example.utils.extensions.hideKeyboard
+import ar.com.wolox.android.example.utils.extensions.showToast
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import ar.com.wolox.wolmo.core.util.openBrowser
 import ar.com.wolox.wolmo.core.util.jumpTo
-import ar.com.wolox.android.example.utils.hideKeyboard
-import ar.com.wolox.android.example.utils.showToast
 
 class LoginFragment private constructor() : WolmoFragment<FragmentLoginBinding, LoginPresenter>(), LoginView {
 
