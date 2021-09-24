@@ -32,12 +32,12 @@ class UserSession @Inject constructor(private val sharedPreferencesManager: Shar
         }
 
     var authInfo: AuthInfo? = null
-        get() = field ?: Gson().fromJson(sharedPreferencesManager[Extras.UserLogin.AUTH_INFO, null], AuthInfo::class.java).also {
-            field = it
-        }
-
+        get() = field
+                ?: Gson().fromJson(sharedPreferencesManager[Extras.UserLogin.AUTH_INFO, null], AuthInfo::class.java).also {
+                    field = it
+                }
         set(authInfo) {
             field = authInfo
             sharedPreferencesManager.store(Extras.UserLogin.AUTH_INFO, Gson().toJson(authInfo))
-    }
+        }
 }
