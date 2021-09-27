@@ -80,7 +80,7 @@ class LoginFragment private constructor() : WolmoFragment<FragmentLoginBinding, 
     }
 
     override fun showErrorNetwork() {
-        showToast(getString(R.string.fragment_login_error_network), Toast.LENGTH_LONG)
+        showToast(getString(R.string.error_network_generic), Toast.LENGTH_LONG)
     }
 
     companion object {
