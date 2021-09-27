@@ -19,8 +19,6 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
     lateinit var scrollListener: EndlessRecyclerOnScrollListener
 
     override fun init() {
-        binding.swipeLayout.setOnRefreshListener(this)
-        binding.newList.adapter = NewsAdapter(this)
 
         scrollListener = object : EndlessRecyclerOnScrollListener() {
             override fun onLoadMore() {
@@ -28,8 +26,11 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
             }
         }
 
-        binding.newList.addOnScrollListener(scrollListener)
-
+        with(binding){
+            swipeLayout.setOnRefreshListener(this)
+            newList.adapter = NewsAdapter(this)
+            newList.addOnScrollListener(scrollListener)
+        }
         presenter.onInit()
     }
 
