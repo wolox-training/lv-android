@@ -13,6 +13,5 @@ object Extras {
     object UserLogin {
         const val USERNAME = "username"
         const val PARTIAL_USERNAME = "partial_username"
-        const val AUTH_INFO = "auth_info"
     }
 }

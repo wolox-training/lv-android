@@ -11,13 +11,7 @@ import ar.com.wolox.android.example.model.New
 import ar.com.wolox.android.example.utils.extensions.glideload
 import ar.com.wolox.android.example.utils.extensions.toPrettyDate
 
-class NewsAdapter(private val listener: NewsListener) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
-
-    private var news = mutableListOf<New>()
-
-    interface NewsListener {
-        fun onClicked(id: Int)
-    }
+class NewsAdapter(val news: List<New>) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_new, parent, false)
@@ -33,22 +27,10 @@ class NewsAdapter(private val listener: NewsListener) : RecyclerView.Adapter<New
                 time.text = it
             }
             liked.isEnabled = news[position].likes.isNotEmpty()
-
-            root.setOnClickListener { listener.onClicked(news[position].id) }
         }
     }
 
     override fun getItemCount() = news.size
-
-    fun addNews(items: List<New>) {
-        news.addAll(items)
-        notifyDataSetChanged()
-    }
-
-    fun clear() {
-        news.clear()
-        notifyDataSetChanged()
-    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val root = view.rootView

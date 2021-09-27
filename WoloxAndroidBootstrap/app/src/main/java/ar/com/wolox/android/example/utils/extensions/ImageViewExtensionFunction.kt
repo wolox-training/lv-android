@@ -9,6 +9,5 @@ fun ImageView.glideload(url: String) {
     Glide.with(this)
         .load(url)
         .placeholder(ColorDrawable(Color.GRAY))
-        .error(ColorDrawable(Color.RED))
         .into(this)
 }
