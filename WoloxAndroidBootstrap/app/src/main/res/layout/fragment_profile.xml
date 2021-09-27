@@ -85,7 +85,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="@dimen/static_spacing_medium_extra"
             android:layout_marginEnd="@dimen/static_spacing_medium_extra"
-            android:text="Lorem ipsum dolor sit amet, consec tetuer adip"/>
+            tools:text="Lorem ipsum dolor sit amet, consec tetuer adip"/>
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/editImage"
