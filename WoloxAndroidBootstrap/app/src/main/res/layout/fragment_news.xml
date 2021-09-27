@@ -9,18 +9,18 @@
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeLayout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottomBar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/newList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/item_new"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_new"/>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <ProgressBar
@@ -32,7 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:indeterminate="true"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add"
@@ -47,16 +47,6 @@
             android:alpha="0.7"
             app:maxImageSize="@dimen/fab_max_image_size"
             android:contentDescription="@string/fragment_news_add_new" />
-
-        <ProgressBar
-            android:id="@+id/bottomBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:visibility="visible"
-            android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

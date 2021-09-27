@@ -1,6 +1,7 @@
 package ar.com.wolox.android.example.ui.viewpager.request
 
 import ar.com.wolox.android.example.model.Post
+import ar.com.wolox.android.example.network.repository.PostRepository
 import ar.com.wolox.wolmo.core.tests.CoroutineTestRule
 import ar.com.wolox.wolmo.core.tests.WolmoPresenterTest
 import ar.com.wolox.wolmo.networking.retrofit.handler.NetworkResponse

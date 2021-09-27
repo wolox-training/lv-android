@@ -4,10 +4,6 @@ import ar.com.wolox.android.example.model.New
 
 interface NewsView {
     fun addNews(news: List<New>)
-    fun clearList()
-    fun toggleInitialLoading(visible: Boolean)
-    fun toggleBottomLoading(visible: Boolean)
-    fun showError()
-    fun showErrorNetwork()
-    fun dismissRefreshing()
+    fun showLoading()
+    fun dismissLoading()
 }
