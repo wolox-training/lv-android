@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class LoginPresenter @Inject constructor(private val userSession: UserSession, private val authRepository: AuthRepository) : CoroutineBasePresenter<LoginView>() {
 
     fun onInit() {
-        if (userSession.username != null) {
+        if (userSession.authInfo != null) {
             view?.goToHome()
         } else {
             userSession.partialUsername?.let { view?.setPartialUsername(it) }
@@ -35,7 +35,6 @@ class LoginPresenter @Inject constructor(private val userSession: UserSession, p
             }
             networkRequest(authRepository.getLogin(LoginRequest(user, password))) {
                 onResponseSuccessful {
-                    userSession.username = user
                     view?.goToHome()
                 }
                 onResponseFailed { _, _ ->
