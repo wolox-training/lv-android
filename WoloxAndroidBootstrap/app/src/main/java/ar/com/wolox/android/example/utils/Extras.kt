@@ -14,5 +14,10 @@ object Extras {
         const val USERNAME = "username"
         const val PARTIAL_USERNAME = "partial_username"
         const val AUTH_INFO = "auth_info"
+        const val USER = "user"
+    }
+
+    object BundleFragmentDetails {
+        const val NEW = "new"
     }
 }

@@ -5,6 +5,7 @@ import ar.com.wolox.android.example.BootstrapApplication
 import ar.com.wolox.android.example.ui.login.LoginModule
 import ar.com.wolox.android.example.ui.signup.SignupModule
 import ar.com.wolox.android.example.ui.home.HomeModule
+import ar.com.wolox.android.example.ui.home.news.details.NewDetailsModule
 import ar.com.wolox.wolmo.core.di.modules.ContextModule
 import ar.com.wolox.wolmo.core.di.modules.DefaultModule
 import ar.com.wolox.wolmo.core.di.scopes.ApplicationScope
@@ -22,7 +23,8 @@ import dagger.android.support.AndroidSupportInjectionModule
             ContextModule::class,
             LoginModule::class,
             SignupModule::class,
-            HomeModule::class])
+            HomeModule::class,
+            NewDetailsModule::class])
 interface AppComponent : AndroidInjector<BootstrapApplication> {
 
     @Component.Builder
