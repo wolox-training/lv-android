@@ -35,6 +35,9 @@ class LoginPresenter @Inject constructor(private val userSession: UserSession, p
             }
             networkRequest(authRepository.getLogin(LoginRequest(user, password))) {
                 onResponseSuccessful {
+                    it?.let {
+                        userSession.user = it.data
+                    }
                     view?.goToHome()
                 }
                 onResponseFailed { _, _ ->

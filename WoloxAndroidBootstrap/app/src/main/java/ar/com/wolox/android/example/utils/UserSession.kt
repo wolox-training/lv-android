@@ -1,6 +1,7 @@
 package ar.com.wolox.android.example.utils
 
 import ar.com.wolox.android.example.model.AuthInfo
+import ar.com.wolox.android.example.model.User
 import ar.com.wolox.wolmo.core.di.scopes.ApplicationScope
 import ar.com.wolox.wolmo.core.util.SharedPreferencesManager
 import com.google.gson.Gson
@@ -39,5 +40,15 @@ class UserSession @Inject constructor(private val sharedPreferencesManager: Shar
         set(authInfo) {
             field = authInfo
             sharedPreferencesManager.store(Extras.UserLogin.AUTH_INFO, Gson().toJson(authInfo))
+        }
+
+    var user: User? = null
+        get() = field
+                ?: Gson().fromJson(sharedPreferencesManager[Extras.UserLogin.USER, null], User::class.java).also {
+                    field = it
+                }
+        set(user) {
+            field = user
+            sharedPreferencesManager.store(Extras.UserLogin.USER, Gson().toJson(user))
         }
 }

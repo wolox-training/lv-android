@@ -5,6 +5,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import ar.com.wolox.android.R
 import ar.com.wolox.android.databinding.FragmentNewsBinding
 import ar.com.wolox.android.example.model.New
+import ar.com.wolox.android.example.ui.home.news.details.NewDetailsActivity
 import ar.com.wolox.android.example.ui.home.news.list.adapter.EndlessRecyclerOnScrollListener
 import ar.com.wolox.android.example.ui.home.news.list.adapter.NewsAdapter
 import ar.com.wolox.android.example.utils.extensions.showSnackbar
@@ -19,8 +20,6 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
     lateinit var scrollListener: EndlessRecyclerOnScrollListener
 
     override fun init() {
-        binding.swipeLayout.setOnRefreshListener(this)
-        binding.newList.adapter = NewsAdapter(this)
 
         scrollListener = object : EndlessRecyclerOnScrollListener() {
             override fun onLoadMore() {
@@ -28,9 +27,16 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
             }
         }
 
-        binding.newList.addOnScrollListener(scrollListener)
+        with(binding) {
+            swipeLayout.setOnRefreshListener(this@NewsFragment)
+            newList.addOnScrollListener(scrollListener)
+        }
 
         presenter.onInit()
+    }
+
+    override fun setupNews(userId: Int) {
+        binding.newList.adapter = NewsAdapter(userId, this@NewsFragment)
     }
 
     override fun addNews(news: List<New>) {
@@ -64,12 +70,21 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
         binding.swipeLayout.isRefreshing = false
     }
 
+    override fun openDetails(new: New) {
+        NewDetailsActivity.start(requireContext(), new)
+    }
+
     override fun onRefresh() {
         presenter.onRefresh()
     }
 
-    override fun onClicked(id: Int) {
-        presenter.onClicked(id)
+    override fun onClicked(new: New) {
+        presenter.onClicked(new)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.onRefresh()
     }
 
     companion object {

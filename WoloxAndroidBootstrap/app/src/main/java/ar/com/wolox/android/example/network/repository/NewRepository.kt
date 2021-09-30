@@ -15,4 +15,12 @@ class NewRepository @Inject constructor(private val retrofitServices: RetrofitSe
     suspend fun getNews(page: Int) = withContext(Dispatchers.IO) {
         NetworkRequestHandler.safeApiCall { service.getNews(page) }
     }
+
+    suspend fun getSingleNew(id: Int) = withContext(Dispatchers.IO) {
+        NetworkRequestHandler.safeApiCall { service.getSingleNew(id) }
+    }
+
+    suspend fun toggleLiked(id: Int) = withContext(Dispatchers.IO) {
+        NetworkRequestHandler.safeApiCall { service.toggleLike(id) }
+    }
 }

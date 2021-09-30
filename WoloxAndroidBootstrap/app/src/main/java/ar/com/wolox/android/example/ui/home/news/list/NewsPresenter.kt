@@ -1,17 +1,22 @@
 package ar.com.wolox.android.example.ui.home.news.list
 
+import ar.com.wolox.android.example.model.New
 import ar.com.wolox.android.example.network.builder.networkRequest
 import ar.com.wolox.android.example.network.repository.NewRepository
+import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.presenter.CoroutineBasePresenter
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class NewsPresenter @Inject constructor(private val repository: NewRepository) : CoroutineBasePresenter<NewsView>() {
+class NewsPresenter @Inject constructor(private val repository: NewRepository, private val userSession: UserSession) : CoroutineBasePresenter<NewsView>() {
 
     private var currentPage = INITIAL_PAGE
 
     fun onInit() {
-        onRefresh()
+        userSession.user?.id?.let {
+            view?.setupNews(it)
+            onRefresh()
+        }
     }
 
     fun loadNews() {
@@ -46,7 +51,9 @@ class NewsPresenter @Inject constructor(private val repository: NewRepository) :
         }
     }
 
-    fun onClicked(id: Int) {}
+    fun onClicked(new: New) {
+        view?.openDetails(new)
+    }
 
     companion object {
         private const val INITIAL_PAGE = 1

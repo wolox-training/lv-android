@@ -7,16 +7,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.R
+import ar.com.wolox.android.example.BaseConfiguration
 import ar.com.wolox.android.example.model.New
 import ar.com.wolox.android.example.utils.extensions.glideload
 import ar.com.wolox.android.example.utils.extensions.toPrettyDate
 
-class NewsAdapter(private val listener: NewsListener) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter(private val userId: Int, private val listener: NewsListener) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     private var news = mutableListOf<New>()
 
     interface NewsListener {
-        fun onClicked(id: Int)
+        fun onClicked(new: New)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,12 +30,11 @@ class NewsAdapter(private val listener: NewsListener) : RecyclerView.Adapter<New
             title.text = news[position].commenter
             description.text = news[position].comment
             image.glideload(news[position].avatar)
-            news[position].createdAt.toPrettyDate()?.let {
+            news[position].createdAt.toPrettyDate(BaseConfiguration.API_TIME_FORMAT)?.let {
                 time.text = it
             }
-            liked.isEnabled = news[position].likes.isNotEmpty()
-
-            root.setOnClickListener { listener.onClicked(news[position].id) }
+            liked.isEnabled = news[position].likes.contains(userId)
+            root.setOnClickListener { listener.onClicked(news[position]) }
         }
     }
 
